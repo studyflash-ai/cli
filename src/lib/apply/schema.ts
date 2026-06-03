@@ -59,6 +59,13 @@ const applicationSchema = z.object({
   owner: z.string().optional(),
   branch: z.string().optional(),
   buildPath: z.string().optional(),
+  // Git provider connection IDs — needed for private repos so the build can
+  // authenticate (otherwise the clone fails). Declarable so `apply` is
+  // self-contained instead of needing an out-of-band updateApplication.
+  githubId: z.string().optional(),
+  gitlabId: z.string().optional(),
+  giteaId: z.string().optional(),
+  bitbucketId: z.string().optional(),
   customGitUrl: z.string().optional(),
   customGitBranch: z.string().optional(),
   customGitBuildPath: z.string().optional(),
